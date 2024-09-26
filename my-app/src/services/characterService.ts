@@ -13,6 +13,7 @@ const getAllCharacters = async () => {
     return resp;
 }
 
+//TODO: switch to ID!!!
 const getCharacterByName = async (name: string) => {
     let character = await fetch('https://rickandmortyapi.com/api/character/${name}');
     let resp = await character.json();

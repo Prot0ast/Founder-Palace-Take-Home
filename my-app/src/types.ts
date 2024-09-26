@@ -3,5 +3,5 @@ export interface Character{
     species: string
     status: string
     gender: string
-    created: number;
+    created: string;
 }
