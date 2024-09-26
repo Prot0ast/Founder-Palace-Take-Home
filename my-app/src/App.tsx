@@ -1,12 +1,19 @@
 import React from "react";
-//import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { ThemeContext } from "./ThemeContext.tsx";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css";
-import { ThemeContext } from "./ThemeContext";
+import { Cast } from "./Cast.tsx"
+import { CharacterDetails } from "./CastDetails.tsx";
 
 function App(){
     return(
         <ThemeContext.Provider value="dark">
-
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/Cast" element={<Cast />} />
+                    <Route path="/Cast/:characterName" element={<CharacterDetails />} />
+                </Routes>
+            </BrowserRouter>
         </ThemeContext.Provider>
     );
 }

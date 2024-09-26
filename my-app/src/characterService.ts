@@ -13,4 +13,10 @@ const getAllCharacters = async () => {
     return resp;
 }
 
-export {getAllCharacters};
+const getCharacterByName = async (name: string) => {
+    let character = await fetch('https://rickandmortyapi.com/api/character/${name}');
+    let resp = await character.json();
+    return resp;
+}
+
+export {getAllCharacters, getCharacterByName};

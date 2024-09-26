@@ -1,9 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../src/ThemeContext.tsx";
-import { Footer } from "../components/Footer.component.tsx";
-import { getAllCharacters } from "../services/characterService.ts";
+import React, { useEffect, useState } from "react";
+import { Footer } from "./Footer.component.tsx";
+import { getAllCharacters } from "./characterService.ts";
+import { Character } from "../src/types.ts";
+import './Page.css';
 
 export function Cast(){
+    const [characters, setCharacters] = useState({});
+
+    const getJSON = async () => {
+        const resp = await fetch("https://rickandmortyapi.com/api/character");
+        var data = await resp.json();
+        setCharacters(data);
+    };
+
+    useEffect(() => {
+        getJSON();
+    });
+
+    var j = JSON.stringify(characters);
+    var parsedCharacters = JSON.parse(j);
+    
     fetch("https://rickandmortyapi.com/api/character").then(function(response){
         return response.json();
     }).then(function(characters){
@@ -26,7 +42,7 @@ export function Cast(){
     return (
         <>
         <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous"/>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous"/>
         </head>
         <div className = "container">
             <h2 className="centerText">Rick and Morty Characters</h2>
