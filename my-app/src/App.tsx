@@ -2,8 +2,8 @@ import React from "react";
 import { ThemeContext } from "./ThemeContext.tsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css";
-import { Cast } from "./Cast.tsx"
-import { CharacterDetails } from "./CastDetails.tsx";
+import { Cast } from "./pages/Cast.tsx"
+import { CharacterDetails } from "./pages/CastDetails.tsx";
 
 function App(){
     return(

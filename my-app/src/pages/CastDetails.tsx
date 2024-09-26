@@ -2,9 +2,9 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import { getCharacterByName } from "./characterService.ts";
-import { Footer } from "./Footer.component.tsx";
-import './Page.css';
+import { getCharacterByName } from "../services/characterService.ts";
+import { Footer } from "../components/Footer.component.tsx";
+import '../components/Page.css';
 
 export function CharacterDetails() {
     const [character, setCharacter] = useState({

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Footer } from "./Footer.component.tsx";
-import { getAllCharacters } from "./characterService.ts";
-import { Character } from "../src/types.ts";
-import './Page.css';
+import { Footer } from "../components/Footer.component.tsx";
+import { getAllCharacters } from "../services/characterService.ts";
+import { Character } from "../types.ts";
+import '../components/Page.css';
 
 export function Cast(){
     const [characters, setCharacters] = useState({});
