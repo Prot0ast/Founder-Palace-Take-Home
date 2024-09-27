@@ -12,8 +12,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/characters" element={<Characters />} />
-              <Route path="/characters/:characterId" element={<CharacterDetails />} />
+              <Route path="/character" element={<Characters />} />
+              <Route path="/character/:characterId" element={<CharacterDetails />} />
             </Routes>
           </BrowserRouter>
         </ThemeContext.Provider>

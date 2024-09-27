@@ -9,10 +9,12 @@ export function Characters(){
     const [characters, setCharacters ] = useState(new Array<Character>());
 
     useEffect(() => {
-        getAllCharacters().then(response =>{
-            setCharacters(response.data)
-        });
+        getAllCharacters()
+        .then(response =>{setCharacters(response.data)})
     }, [setCharacters]);
+    
+    console.log(characters ? characters : "Fetching data...");
+
     
     return (
         <>
@@ -32,7 +34,7 @@ export function Characters(){
                     </tr>
                 </thead>
                 <tbody>
-                    {characters.map((character) => (<CharacterTableRow key={character.id} character={character} />))}
+                 {characters.map((character) => (<CharacterTableRow key={character.id} character={character} />))}
                 </tbody>
             </table>
         </div>

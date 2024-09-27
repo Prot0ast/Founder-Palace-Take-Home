@@ -12,3 +12,13 @@
     margin-right: auto;
     max-width: 20%;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-end;
+    flex-direction: column;
+    margin: 10px;
+    border: 2px solid black;
+    min-height: 1000px; */
+}
