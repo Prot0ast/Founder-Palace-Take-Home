@@ -1,28 +1,22 @@
 import React from 'react';
 import { Character } from '../types';
+import { useState, useEffect} from "react";
 import { CharacterTableRow } from '../components/CharacterTableRow.tsx';
+import { Header } from '../components/Header.component.tsx';
 import { getAllCharacters } from '../services/characterService.ts';
 
 export function Characters(){
-    const [characters, setCharacters ] = React.useState(new Array<Character>());
-    let newCharacter = 
-    { 
-        id: "",
-        name: "",
-        species: "",
-        status: "",
-        gender: "",
-        created: ""
-    }
+    const [characters, setCharacters ] = useState(new Array<Character>());
 
-    React.useEffect(() => {
+    useEffect(() => {
         getAllCharacters().then(response =>{
             setCharacters(response.data)
         });
     }, [setCharacters]);
-
+    
     return (
         <>
+        <Header />
         <div className="container">
             <h2>Rick and Morty Characters</h2>
             <table className='table table-responsive table-striped table-hover'>
@@ -38,7 +32,7 @@ export function Characters(){
                     </tr>
                 </thead>
                 <tbody>
-                    {characters.map((character) =>(<CharacterTableRow key={character.id} character={character} />))}
+                    {characters.map((character) => (<CharacterTableRow key={character.id} character={character} />))}
                 </tbody>
             </table>
         </div>

@@ -15,7 +15,10 @@ export function CharacterTableRow({character}: CharacterTableRowProps): JSX.Elem
             <td>{character.status}</td>
             <td>{character.gender}</td>
             <td>{character.created}</td>
-            <td><a className="btn btn-info" href={characterLink}>Details</a></td>
+            <td>
+                <a className="btn btn-info" href={characterLink}>Details
+                </a>
+            </td>
         </tr>
     );
 }
