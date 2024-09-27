@@ -4,7 +4,7 @@ import { getCharacterById } from '../services/characterService.ts';
 
 export function CharacterDetails(){
     const [character, setCharacter] = React.useState({
-        id:'',
+        id:0,
         name:'',
         species:'',
         status:'',

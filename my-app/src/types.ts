@@ -1,5 +1,5 @@
 export interface Character {
-    id: string;
+    id: number;
     name: string;
     species: string;
     status: string;
@@ -8,7 +8,7 @@ export interface Character {
 }
 
 export interface CharacterDetailResponse {
-    id: string;
+    id: number;
     name: string;
     species: string;
     status: string;
