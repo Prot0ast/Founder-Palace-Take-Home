@@ -7,7 +7,7 @@ import { getAllCharacters } from '../services/characterService.ts';
 
 export function Characters(){
     const [characters, setCharacters ] = useState(new Array<Character>());
-
+    
     useEffect(() => {
         getAllCharacters()
         .then(response =>{setCharacters(response.data)})
