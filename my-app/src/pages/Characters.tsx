@@ -1,7 +1,7 @@
 import React from 'react';
 import { Character } from '../types';
-import { CharacterTableRow } from '../components/CharacterTableRow';
-import { getAllCharacters } from '../services/characterService';
+import { CharacterTableRow } from '../components/CharacterTableRow.tsx';
+import { getAllCharacters } from '../services/characterService.ts';
 
 export function Characters(){
     const [characters, setCharacters ] = React.useState(new Array<Character>());

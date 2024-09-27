@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { getCharacterById } from '../services/characterService';
+import { getCharacterById } from '../services/characterService.ts';
 
 export function CharacterDetails(){
     const [character, setCharacter] = React.useState({
