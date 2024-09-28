@@ -9,7 +9,8 @@ export function CharacterDetails(){
         species:'',
         status:'',
         gender:'',
-        created:''
+        created:'',
+        image:''
     });
     const {characterId } = useParams();
 
@@ -27,6 +28,7 @@ export function CharacterDetails(){
             <h2>Character Details</h2>
             <dl>
                 <dt>ID</dt>
+                <img src={character.image} alt={character.name} style={{ width: 50, height: 50 }} />
                 <dd>{character.id}</dd>
                 <dt>Name</dt>
                 <dd>{character.name}</dd>

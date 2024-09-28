@@ -22,3 +22,22 @@
     border: 2px solid black;
     min-height: 1000px; */
 }
+
+.select-container {
+    margin: 1rem 0;
+}
+
+#statusFilter {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 200px; /* Adjust width as needed */
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+#statusFilter:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}

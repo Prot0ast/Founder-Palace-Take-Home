@@ -21,6 +21,7 @@ export interface CharacterDetailResponse {
     status: string;
     gender: string;
     created: string;
+    image: string;
 }
 
 export interface CharacterApiResponse {
