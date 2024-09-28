@@ -4,48 +4,46 @@ import { CharacterTableRow } from '../components/CharacterTableRow.tsx';
 import { Header } from '../components/Header.component.tsx';
 import { getAllCharacters } from '../services/characterService.ts';
 
+interface CharacterApiResponse {
+    info: any;
+    results: Character[];
+}
+
 export function Characters() {
-    const [characters, setCharacters] = useState(new Array<Character>());
+    const [characters, setCharacters] = useState<Character[]>([]);
 
     useEffect(() => {
         getAllCharacters()
-        .then(response => {
-            if (Array.isArray(response.data)) {
-                setCharacters(response.data);
-            } else {
-                console.error("Expected an array, but got:", response.data);
+            .then((response: CharacterApiResponse) => {
+                setCharacters(response.results);
+            })
+            .catch(error => {
+                console.error("Error fetching characters:", error);
                 setCharacters([]);
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching characters:", error);
-            setCharacters([]);
-        });
+            });
     }, []);
-    
+
     return (
         <>
             <Header />
             <div className="container">
                 <h2>Rick and Morty Characters</h2>
-                <table className='table table-responsive table-striped table-hover'>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Species</th>
-                            <th>Status</th>
-                            <th>Gender</th>
-                            <th>Date Created</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                {characters.length > 0 ? (
+                    <ul>
                         {characters.map(character => (
-                            <CharacterTableRow key={character.id} character={character} />
+                            <li key={character.id}>
+                                <img src={character.image} alt={character.name} style={{ width: 50, height: 50 }} />
+                                <strong>Name:</strong> {character.name} <br />
+                                <strong>Status:</strong> {character.status} <br />
+                                <strong>Species:</strong> {character.species} <br />
+                                <strong>Gender:</strong> {character.gender} <br />
+                                <strong>Created:</strong> {character.created} <br />
+                            </li>
                         ))}
-                    </tbody>
-                </table>
+                    </ul>
+                ) : (
+                    <p>No characters found.</p>
+                )}
             </div>
         </>
     );

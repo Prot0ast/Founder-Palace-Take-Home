@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Character, CharacterDetailResponse } from "../types";
+import { Character, CharacterDetailResponse, CharacterApiResponse } from "../types";
 
 export const http = axios.create({
     baseURL: 'https://rickandmortyapi.com/api',
@@ -8,8 +8,9 @@ export const http = axios.create({
     },
 });
 
-const getAllCharacters = async () => {
-    return await http.get<Array<Character>>('/character');
+const getAllCharacters = async (): Promise<CharacterApiResponse> => {
+    const response = await http.get<CharacterApiResponse>(`/character`);
+    return response.data;
 }
 
 const getCharacterById = async (id:string) => {
