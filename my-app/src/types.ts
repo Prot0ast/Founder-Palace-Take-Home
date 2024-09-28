@@ -22,6 +22,7 @@ export interface CharacterDetailResponse {
     gender: string;
     created: string;
     image: string;
+    url: string;
 }
 
 export interface CharacterApiResponse {

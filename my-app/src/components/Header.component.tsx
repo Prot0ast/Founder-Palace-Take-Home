@@ -13,10 +13,7 @@ export class Header extends React.Component {
     render() {
         return (
             <div>
-                <header>
-                    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    </nav>
-                </header>
+                <img className="centerImg"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI5_eCMFv2JFx_GLpkK4ZcVKcXqdTnkKdgWA&s" alt="Rick and Morty Logo" style={{ width: 400, height: 150 }}/>
             </div>
         )
     }

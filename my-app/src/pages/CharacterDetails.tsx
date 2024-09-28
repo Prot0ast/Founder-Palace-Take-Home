@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getCharacterById } from '../services/characterService.ts';
+import { getRandomNumber } from '../services/characterService.ts';
+import { useTheme } from '../ThemeContext.tsx';
 
 export function CharacterDetails(){
     const [character, setCharacter] = React.useState({
@@ -10,7 +12,8 @@ export function CharacterDetails(){
         status:'',
         gender:'',
         created:'',
-        image:''
+        image:'',
+        url:''
     });
     const {characterId } = useParams();
 
@@ -23,24 +26,52 @@ export function CharacterDetails(){
         });
     }, [setCharacter, characterId]);
 
+    const randomNumber = getRandomNumber(0, 825);
+
+    const { theme, setTheme } = useTheme();
+
     return (
-        <div>
-            <h2>Character Details</h2>
+        <div className={`home-container ${theme}`}>
+            <h2 className="container">You got {character.name}!</h2>
             <dl>
-                <dt>ID</dt>
-                <img src={character.image} alt={character.name} style={{ width: 50, height: 50 }} />
-                <dd>{character.id}</dd>
-                <dt>Name</dt>
+                <img className="centerImg" src={character.image} alt={character.name} style={{ width: 150, height: 150 }} />
+                <br></br>
+                <div className="flexbox container">
+                <dt>Name:</dt>
                 <dd>{character.name}</dd>
-                <dt>Species</dt>
+                </div>
+                
+                <div className="flexbox container">
+                <dt>Species:</dt>
                 <dd>{character.species}</dd>
-                <dt>Status</dt>
+                </div>
+
+                <div className="flexbox container">
+                <dt>Status:</dt>
                 <dd>{character.status}</dd>
-                <dt>Gender</dt>
+                </div>
+
+                <div className="flexbox container">
+                <dt>Gender:</dt>
                 <dd>{character.gender}</dd>
-                <dt>Date Created</dt>
+                </div>
+
+                <div className="flexbox container">
+                <dt>Date Created:</dt>
                 <dd>{character.created}</dd>
+                </div>
+
+                <div className="flexbox container">
+                <dt>URL:</dt>
+                <dd>{character.url}</dd>
+                </div>
             </dl>
+            <div>
+                <a className="btn btn-lg flexbox" href={`/`}>Back</a>
+                <a className="btn btn-lg flexbox" href={`/character/${randomNumber}`}>Again!</a>
+            </div>
+            
+
         </div>
     )
 }
